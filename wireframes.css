@@ -1,0 +1,1011 @@
+/* Shared styles — Higharc Estimate wireframe mockups */
+
+/* San Francisco Text — OTFs in fonts/sf-otf/ (copied from local install). */
+@font-face {
+  font-family: "San Francisco";
+  src: url("fonts/sf-otf/SFNSText-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("fonts/sf-otf/SFNSText-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("fonts/sf-otf/SFNSText-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("fonts/sf-otf/SFNSText-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("fonts/sf-otf/SFNSText-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("fonts/sf-otf/SFNSText-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ——— Secondary palette (higharc.com marketing, Webflow CSS — 2026) ———
+   Tokens aggregated from frequent colors on https://www.higharc.com/ */
+:root {
+  --ha-ink: #000222;
+  --ha-ink-muted: #222222;
+  --ha-ink-soft: #333333;
+  --ha-neutral-600: #616161;
+  --ha-neutral-400: #b8b8b8;
+  --ha-mint: #4dd689;
+  --ha-mint-alt: #4dd694;
+  --ha-mint-bright: #00f17d;
+  --ha-surface-0: #ffffff;
+  --ha-surface-1: #fafafa;
+  --ha-surface-2: #f5f5f5;
+  --ha-surface-mint-tint: #eafaf1;
+  --ha-border-soft: #eeeeee;
+  --ha-violet-accent: #4d65ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Circular, "San Francisco", system-ui, -apple-system, sans-serif;
+  background: #fff;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* ——— Wireframe shell: full viewport width & height ——— */
+
+.wireframe {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.wireframe--column {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ——— App chrome (shared / slide 15) ——— */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 0 20px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar--compact {
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* Logo + Estimate + primary nav share one typographic baseline */
+.topbar-brand-cluster {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.topbar--compact .topbar-brand-cluster {
+  padding: 8px 0;
+}
+
+.app-logo-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.app-logo-img {
+  align-self: center;
+  height: 26px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.app-logo-lockup .logo {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #111827;
+}
+
+.tabs {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #6b7280;
+}
+
+.tab-active {
+  background: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.tabs-global {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #6b7280;
+}
+
+.pill-tab {
+  background: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+/* Inactive top-nav item — same box metrics as .tab-active / .pill-tab for baseline alignment */
+.tab-link {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.user {
+  font-size: 13px;
+  line-height: 1.25;
+  color: #6b7280;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fake-dd {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 28px 6px 10px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.project-bar .fake-dd {
+  padding: 5px 10px;
+  margin-right: 8px;
+}
+
+.toggle-pair {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+}
+
+.toggle-pair span {
+  padding: 6px 12px;
+  font-size: 12px;
+  background: #fff;
+  color: #6b7280;
+}
+
+.toggle-pair .on {
+  background: rgb(51, 108, 184);
+  color: #fff;
+  border: none;
+}
+
+.options-trigger {
+  position: relative;
+  background: rgb(51, 108, 184);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.toolbar-right {
+  text-align: right;
+}
+
+.est-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.est-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.est-total {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.delta {
+  font-size: 14px;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.btn-export {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.project-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+}
+
+.est {
+  text-align: right;
+  font-size: 13px;
+}
+
+.est strong {
+  font-size: 16px;
+}
+
+.sub-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 12px;
+}
+
+.tabs-mini {
+  color: #6b7280;
+}
+
+.tabs-mini strong {
+  color: rgb(51, 108, 184);
+  font-weight: 600;
+  border-bottom: 2px solid rgb(51, 108, 184);
+  padding-bottom: 6px;
+}
+
+.main-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.main-tabs .active {
+  color:rgb(51, 108, 184)
+  font-weight: 600;
+  border-bottom: 2px solid rgb(51, 108, 184);
+  padding-bottom: 8px;
+  margin-bottom: -11px;
+}
+
+.breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: #eff6ff;
+  border-bottom: 1px solid #bfdbfe;
+  font-size: 13px;
+}
+
+.breadcrumb-bar a {
+  color: rgb(51, 108, 184);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.breadcrumb-bar a:hover {
+  text-decoration: underline;
+}
+
+/* ——— Slide 15: Options popover ——— */
+
+.popover-wrap {
+  position: absolute;
+  left: 380px;
+  top: 100%;
+  margin-top: 8px;
+  z-index: 10;
+}
+
+.popover {
+  width: 420px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.popover-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.search {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: #9ca3af;
+  background: #f9fafb;
+}
+
+.close-x {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.group-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #6b7280;
+  padding: 12px 14px 6px;
+  background: #f9fafb;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 13px;
+}
+
+.option-row:last-child {
+  border-bottom: none;
+}
+
+.option-row.selected {
+  background: #eff6ff;
+}
+
+.opt-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radio {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.radio.on {
+  border-color: rgb(51, 108, 184);
+  box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 6px rgb(51, 108, 184);
+}
+
+.cost-delta {
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.cost-delta.up {
+  color: #dc2626;
+}
+
+.cost-delta.down {
+  color: #16a34a;
+}
+
+.cost-range {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.content-fade {
+  flex: 1;
+  min-height: 0;
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* ——— Slide 16: Option impact + viewer ——— */
+
+.main-row {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.center-panel {
+  flex: 1;
+  background: #fafafa;
+  padding: 16px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.fake-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 520px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.viewer-stack {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.viewer-3d {
+  flex: 1;
+  background: linear-gradient(145deg, #e0e7ff 0%, #f3f4f6 45%, #dbeafe 100%);
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.house-silhouette {
+  width: 140px;
+  height: 100px;
+  border: 2px solid #94a3b8;
+  border-radius: 4px 4px 0 0;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.roof-hit {
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  right: 20px;
+  height: 28px;
+  background: rgba(236, 72, 153, 0.45);
+  border: 2px solid #db2777;
+  border-radius: 4px;
+}
+
+.anno {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  max-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  line-height: 1.35;
+}
+
+.anno strong {
+  color: #db2777;
+}
+
+.viewer-2d {
+  height: 160px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.slide-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  background: #fff;
+  border-left: 1px solid #e5e7eb;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.slide-panel-head {
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.slide-panel-head--padded {
+  position: relative;
+  padding-right: 40px;
+}
+
+.slide-panel-head h2 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.slide-panel-head p {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.slide-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #6b7280;
+  background: #fff;
+}
+
+.summary-badge {
+  margin: 12px 14px 0;
+  padding: 12px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.summary-badge .big {
+  font-size: 20px;
+  font-weight: 800;
+  color: #dc2626;
+}
+
+.summary-badge .sub {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.breakdown {
+  flex: 1;
+  overflow: auto;
+  padding: 14px;
+}
+
+.breakdown h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.impact-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 13px;
+}
+
+.impact-row .name {
+  font-weight: 500;
+  color: #111827;
+  max-width: 180px;
+}
+
+.impact-row .amt {
+  font-weight: 700;
+  color: #dc2626;
+  white-space: nowrap;
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.link-arrow {
+  font-size: 12px;
+  color: rgb(51, 108, 184);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.view-measures {
+  font-size: 11px;
+  color: rgb(51, 108, 184);
+  font-weight: 600;
+}
+
+.panel-foot {
+  padding: 12px 14px;
+  border-top: 1px solid #f3f4f6;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* ——— Slide 17: Three-column wayfinding ——— */
+
+.three-col {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 220px;
+  background: #f5f5f5;
+  border-right: 1px solid #e5e7eb;
+  padding: 12px 0;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.sb-head {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6b7280;
+  padding: 0 12px 8px;
+}
+
+.sb-item {
+  padding: 8px 12px;
+  color: #374151;
+  border-left: 3px solid transparent;
+}
+
+.sb-item.dim {
+  color: #9ca3af;
+}
+
+.sb-item.active-bom {
+  background: #dbeafe;
+  border-left-color: rgb(51, 108, 184);
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.center {
+  flex: 1;
+  background: #fafafa;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.context-chip-wrap {
+  padding: 12px 16px 0;
+}
+
+.context-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #374151;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.context-chip span.muted {
+  color: #6b7280;
+}
+
+.chip-dismiss {
+  border: none;
+  background: #f3f4f6;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: default;
+}
+
+.page-title {
+  padding: 12px 16px 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.section {
+  margin: 0 16px 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.section-h {
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-h button {
+  font-size: 12px;
+  background: rgb(51, 108, 184);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.section-h-meta {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.wireframe table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.wireframe th {
+  text-align: left;
+  padding: 8px 10px;
+  background: #f9fafb;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.wireframe td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.wireframe td.cost {
+  color: rgb(51, 108, 184);
+  font-weight: 600;
+}
+
+.right-panel {
+  width: 300px;
+  background: #f5f5f5;
+  border-left: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.v3d {
+  flex: 1;
+  background: linear-gradient(180deg, #e0e7ff 0%, #f8fafc 100%);
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.v2d {
+  height: 200px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* ——— Small layout helpers (replace inline styles) ——— */
+
+.flex-row-gap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.text-muted-sm {
+  font-size: 13px;
+  line-height: 1.25;
+  color: #6b7280;
+}
+
+.reset-to-base {
+  font-size: 12px;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.skeleton-bar {
+  margin-top: 12px;
+  height: 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.skeleton-bar--narrow {
+  margin-top: 8px;
+  width: 80%;
+}
+
+.fake-card-title {
+  color: #374151;
+}
+
+.btn-export-inline {
+  font-size: 12px;
+  padding: 4px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.fake-dd-muted {
+  opacity: 0.6;
+}
+
+/* Slide 16 top bar meta */
+
+.slide16-toolbar-meta {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #6b7280;
+}
+
+.slide16-delta {
+  color: #dc2626;
+}
+
+.sub-toolbar-hint {
+  font-size: 12px;
+  color: #6b7280;
+}

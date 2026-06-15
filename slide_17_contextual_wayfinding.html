@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Higharc Estimate — Trace from BOM</title>
+  <link rel="stylesheet" href="wireframes.css" />
+</head>
+<body>
+  <div class="wireframe wireframe--column">
+    <div class="topbar">
+      <div class="topbar-brand-cluster">
+        <div class="app-logo-lockup">
+          <img src="higharc_logo.jpeg" alt="" class="app-logo-img" width="28" height="28" />
+          <span class="logo">Estimate</span>
+        </div>
+        <div class="tabs-global">
+          <span class="pill-tab">Takeoffs</span>
+          <span class="tab-link">Integrations</span>
+        </div>
+      </div>
+      <span class="text-muted-sm">Estimate Design Critique</span>
+    </div>
+    <div class="project-bar">
+      <div>
+        <span class="fake-dd">Proforma Plus ▾</span>
+        <span class="fake-dd">The Allison (Master Plan) ▾</span>
+        <span class="fake-dd fake-dd-muted">Active</span>
+        <span class="fake-dd">Modern Farmhouse ▾</span>
+      </div>
+      <div class="est">Estimated Cost <strong>$279,525.70</strong> &nbsp; <button type="button" class="btn-export-inline">Export ▾</button></div>
+    </div>
+    <div class="main-tabs">
+      <span>Components</span>
+      <span class="active">Measures</span>
+      <span>Bill of Materials</span>
+    </div>
+    <div class="breadcrumb-bar">
+      <a href="#">← Back to Bill of Materials — 2x4x16 SPF (row 14)</a>
+    </div>
+
+    <div class="three-col">
+      <aside class="sidebar">
+        <div class="sb-head">Categories</div>
+        <div class="sb-item dim">Building</div>
+        <div class="sb-item dim">Casework</div>
+        <div class="sb-item dim">…</div>
+        <div class="sb-item active-bom">Wall Structure</div>
+        <div class="sb-item dim">Roofs</div>
+        <div class="sb-item dim">Walls</div>
+        <div class="sb-item dim">Windows</div>
+      </aside>
+
+      <main class="center">
+        <div class="context-chip-wrap">
+          <div class="context-chip">
+            <strong>Viewing from BOM context</strong>
+            <span class="muted">PROLUM2X4X16SPF · 211020 · Framing Material</span>
+            <button type="button" class="chip-dismiss" title="Dismiss">×</button>
+          </div>
+        </div>
+        <h2 class="page-title">Wall Structure</h2>
+
+        <div class="section">
+          <div class="section-h">
+            Plate Material
+            <button type="button">+ New Measure Group</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Count</th>
+                <th>Resources</th>
+                <th>Estimated Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Top plates — perimeter</td>
+                <td>186 LF</td>
+                <td>PROLUM2X4X16SPF</td>
+                <td class="cost">$1,684.20</td>
+              </tr>
+              <tr>
+                <td>Interior partitions</td>
+                <td>92 LF</td>
+                <td>PROLUM2X4X12SPF</td>
+                <td class="cost">$612.40</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <div class="section-h">
+            Studs — load bearing
+            <span class="section-h-meta">Mapped from BOM line quantities</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Wall ID</th>
+                <th>Height</th>
+                <th>Resources</th>
+                <th>Estimated Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>W-104 / Level 1</td>
+                <td>9′-1″</td>
+                <td>PROSTUD2X6X92</td>
+                <td class="cost">$2,903.10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <aside class="right-panel">
+        <div class="v3d">3D viewer — framing scope highlighted for the open category</div>
+        <div class="v2d">2D plan viewer — Floor 1</div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

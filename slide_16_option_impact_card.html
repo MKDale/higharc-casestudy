@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Higharc Estimate — Option impact</title>
+  <link rel="stylesheet" href="wireframes.css" />
+</head>
+<body>
+  <div class="wireframe wireframe--column">
+    <div class="topbar topbar--compact">
+      <div class="topbar-brand-cluster">
+        <div class="app-logo-lockup">
+          <img src="higharc_logo.jpeg" alt="" class="app-logo-img" width="28" height="28" />
+          <span class="logo">Estimate</span>
+        </div>
+        <div class="tabs">
+          <span class="tab-active">Takeoffs</span>
+          <span class="tab-link">Integrations</span>
+        </div>
+      </div>
+      <span class="slide16-toolbar-meta">Proforma Plus · The Allison — Estimated <strong>$277,232</strong> <span class="slide16-delta">↑ +$1,250</span></span>
+    </div>
+    <div class="sub-toolbar">
+      <span class="tabs-mini"><strong>Measures</strong> &nbsp; Components &nbsp; Bill of Materials</span>
+      <span class="sub-toolbar-hint">Options: Cedar Shake selected</span>
+    </div>
+    <div class="main-row">
+      <div class="center-panel">
+        <div class="fake-card">
+          <strong class="fake-card-title">Doors</strong> — measure groups and resource rows for the selected category in the main <strong>Measures</strong> canvas (cropped).
+          <div class="skeleton-bar"></div>
+          <div class="skeleton-bar skeleton-bar--narrow"></div>
+        </div>
+      </div>
+      <div class="viewer-stack">
+        <div class="viewer-3d">
+          <div class="house-silhouette">
+            <div class="roof-hit" title="Affected roof planes"></div>
+          </div>
+          <div class="anno">
+            <strong>Model viewer</strong><br />
+            Affected envelope geometry is tinted to match the option you just applied; the floor plan below stays aligned for room-level checks.
+          </div>
+        </div>
+        <div class="viewer-2d">2D plan viewer (same plan, floor selector)</div>
+
+        <div class="slide-panel">
+          <button type="button" class="slide-close" aria-label="Close">×</button>
+          <div class="slide-panel-head slide-panel-head--padded">
+            <h2>Option Impact</h2>
+            <p>Cedar Shake — *Facade G1G</p>
+          </div>
+          <div class="summary-badge">
+            <div class="big">+$1,250</div>
+            <div class="sub">to base estimate</div>
+          </div>
+          <div class="breakdown">
+            <h3>Breakdown by category</h3>
+            <div class="impact-row">
+              <div>
+                <div class="name">Roofing Materials</div>
+                <div class="row-actions">
+                  <a class="link-arrow" href="#">Open <span aria-hidden="true">→</span></a>
+                  <span class="view-measures">View in Measures</span>
+                </div>
+              </div>
+              <span class="amt">+$780</span>
+            </div>
+            <div class="impact-row">
+              <div>
+                <div class="name">Exterior Trim &amp; Casings</div>
+                <div class="row-actions">
+                  <a class="link-arrow" href="#">Open <span aria-hidden="true">→</span></a>
+                  <span class="view-measures">View in Measures</span>
+                </div>
+              </div>
+              <span class="amt">+$340</span>
+            </div>
+            <div class="impact-row">
+              <div>
+                <div class="name">Framing Labor</div>
+                <div class="row-actions">
+                  <a class="link-arrow" href="#">Open <span aria-hidden="true">→</span></a>
+                  <span class="view-measures">View in Measures</span>
+                </div>
+              </div>
+              <span class="amt">+$130</span>
+            </div>
+          </div>
+          <div class="panel-foot">
+            <strong>View in Measures</strong> switches to the <strong>Measures</strong> tab with the category filter applied; your place in <strong>Bill of Materials</strong> and expanded rows is restored when you dismiss this panel or finish the review.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
