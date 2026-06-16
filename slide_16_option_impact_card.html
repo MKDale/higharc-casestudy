@@ -246,6 +246,7 @@
           role="region"
           aria-labelledby="option-impact-title"
           aria-hidden="true"
+          inert
         >
           <button type="button" class="slide-close" aria-label="Close option impact">×</button>
           <div class="slide-panel-head slide-panel-head--padded">
@@ -299,28 +300,48 @@
 
   <script>
     (function () {
-      var panel = document.getElementById("option-impact-panel");
-      var btnImpact = document.getElementById("btn-impact-export");
-      var estHit = document.getElementById("est-hit-trigger");
-      var closeBtn = panel ? panel.querySelector(".slide-close") : null;
+      function initOptionImpactToggle() {
+        var panel = document.getElementById("option-impact-panel");
+        var btnImpact = document.getElementById("btn-impact-export");
+        var estHit = document.getElementById("est-hit-trigger");
+        var closeBtn = panel ? panel.querySelector(".slide-close") : null;
 
-      function setOpen(open) {
-        if (!panel) return;
-        panel.classList.toggle("is-open", open);
-        panel.setAttribute("aria-hidden", open ? "false" : "true");
-        [btnImpact, estHit].forEach(function (el) {
-          if (!el) return;
-          el.setAttribute("aria-expanded", open ? "true" : "false");
-        });
+        function setOpen(open) {
+          if (!panel) return;
+          panel.classList.toggle("is-open", open);
+          panel.setAttribute("aria-hidden", open ? "false" : "true");
+          if (open) {
+            panel.removeAttribute("inert");
+          } else {
+            panel.setAttribute("inert", "");
+          }
+          [btnImpact, estHit].forEach(function (el) {
+            if (!el) return;
+            el.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
+
+        function toggle(ev) {
+          if (ev) ev.preventDefault();
+          if (!panel) return;
+          setOpen(!panel.classList.contains("is-open"));
+        }
+
+        if (btnImpact) btnImpact.addEventListener("click", toggle);
+        if (estHit) estHit.addEventListener("click", toggle);
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function (ev) {
+            if (ev) ev.preventDefault();
+            setOpen(false);
+          });
+        }
       }
 
-      function toggle() {
-        setOpen(!panel.classList.contains("is-open"));
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initOptionImpactToggle);
+      } else {
+        initOptionImpactToggle();
       }
-
-      if (btnImpact) btnImpact.addEventListener("click", toggle);
-      if (estHit) estHit.addEventListener("click", toggle);
-      if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); });
     })();
   </script>
 </body>
