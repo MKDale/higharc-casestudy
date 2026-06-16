@@ -52,77 +52,164 @@
       </aside>
 
       <main class="center">
-        <div class="context-chip-wrap">
-          <div class="context-chip">
-            <strong>Viewing from BOM context</strong>
-            <span class="muted">PROLUM2X4X16SPF · 211020 · Framing Material</span>
-            <button type="button" class="chip-dismiss" title="Dismiss">×</button>
+        <div class="page-header-row">
+          <h2 class="page-title page-title--inline">Wall Structure</h2>
+          <div class="page-header-actions">
+            <div class="action-group" id="browse-actions">
+              <button type="button" class="btn-new-measure-group" id="btn-new-measure">+ New Measure Group</button>
+            </div>
+            <div class="action-group is-hidden" id="draft-actions">
+              <button type="button" class="btn-cancel-draft" id="btn-cancel-draft">Cancel</button>
+              <button type="button" class="btn-save-draft" id="btn-save-draft">Save measure group</button>
+            </div>
           </div>
         </div>
-        <h2 class="page-title">Wall Structure</h2>
 
-        <div class="section">
-          <div class="section-h">
-            Plate Material
-            <button type="button">+ New Measure Group</button>
+        <div class="measure-draft is-hidden" id="measure-draft-panel" aria-hidden="true">
+          <div class="measure-draft-back">New Measure Group: Wall Structure</div>
+          <h3 class="measure-draft-title">Create a Measure Group</h3>
+          <p class="measure-draft-lede">
+            Measure Groups allow you to manipulate existing model data to match the desired measure outputs that map to resources.
+            Define measures with filters, outputs, and breakout columns—each row can map to a different resource after you save.
+          </p>
+          <div class="measure-draft-form">
+            <div class="measure-draft-field">
+              <label for="mg-name">Measure Group Name</label>
+              <input id="mg-name" type="text" value="New Measure" />
+            </div>
+            <div class="measure-draft-field">
+              <label for="mg-output">Output</label>
+              <input id="mg-output" type="text" readonly value="Height, Length, Area, Count…" />
+            </div>
+            <div class="measure-draft-field">
+              <label for="mg-breakout">Breakout by</label>
+              <input id="mg-breakout" type="text" readonly value="Structural system, Base structure…" />
+            </div>
+            <div class="measure-draft-field">
+              <label for="mg-filter">Filters</label>
+              <input id="mg-filter" type="text" placeholder="+ Add filter" />
+            </div>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Count</th>
-                <th>Resources</th>
-                <th>Estimated Cost</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Top plates — perimeter</td>
-                <td>186 LF</td>
-                <td>PROLUM2X4X16SPF</td>
-                <td class="cost">$1,684.20</td>
-              </tr>
-              <tr>
-                <td>Interior partitions</td>
-                <td>92 LF</td>
-                <td>PROLUM2X4X12SPF</td>
-                <td class="cost">$612.40</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="section measure-draft-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Height (in)</th>
+                  <th>Length (ft)</th>
+                  <th>Length less openings (ft)</th>
+                  <th>Area (sq ft)</th>
+                  <th>Area less openings (sq ft)</th>
+                  <th>Total height (in)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="measure-draft-placeholder" colspan="6">No model rows yet—adjust filters or pull from the plan to populate this table.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="section">
-          <div class="section-h">
-            Studs — load bearing
-            <span class="section-h-meta">Mapped from BOM line quantities</span>
+        <div id="measure-list-below">
+          <div class="section">
+            <div class="section-h">
+              Plate Material
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Count</th>
+                  <th>Resources</th>
+                  <th>Estimated Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Top plates — perimeter</td>
+                  <td>186 LF</td>
+                  <td>PROLUM2X4X16SPF</td>
+                  <td class="cost">$1,684.20</td>
+                </tr>
+                <tr>
+                  <td>Interior partitions</td>
+                  <td>92 LF</td>
+                  <td>PROLUM2X4X12SPF</td>
+                  <td class="cost">$612.40</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Wall ID</th>
-                <th>Height</th>
-                <th>Resources</th>
-                <th>Estimated Cost</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>W-104 / Level 1</td>
-                <td>9′-1″</td>
-                <td>PROSTUD2X6X92</td>
-                <td class="cost">$2,903.10</td>
-              </tr>
-            </tbody>
-          </table>
+
+          <div class="section">
+            <div class="section-h">
+              Studs — load bearing
+              <span class="section-h-meta">Mapped from BOM line quantities</span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Wall ID</th>
+                  <th>Height</th>
+                  <th>Resources</th>
+                  <th>Estimated Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>W-104 / Level 1</td>
+                  <td>9′-1″</td>
+                  <td>PROSTUD2X6X92</td>
+                  <td class="cost">$2,903.10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
 
       <aside class="right-panel">
-        <div class="v3d">3D viewer — framing scope highlighted for the open category</div>
-        <div class="v2d">2D plan viewer — Floor 1</div>
+        <div class="v3d">
+          <img src="Wallstructure3d.png" alt="" class="viewer-visual-img" />
+        </div>
+        <div class="v2d">
+          <img src="2dplanwallstructure.png" alt="" class="viewer-visual-img" />
+        </div>
       </aside>
     </div>
   </div>
+
+  <script>
+    (function () {
+      var btnNew = document.getElementById("btn-new-measure");
+      var btnCancel = document.getElementById("btn-cancel-draft");
+      var btnSave = document.getElementById("btn-save-draft");
+      var browse = document.getElementById("browse-actions");
+      var draft = document.getElementById("draft-actions");
+      var panel = document.getElementById("measure-draft-panel");
+      var list = document.getElementById("measure-list-below");
+
+      function openDraft() {
+        browse.classList.add("is-hidden");
+        draft.classList.remove("is-hidden");
+        panel.classList.remove("is-hidden");
+        panel.setAttribute("aria-hidden", "false");
+        list.classList.add("is-hidden");
+      }
+
+      function closeDraft() {
+        browse.classList.remove("is-hidden");
+        draft.classList.add("is-hidden");
+        panel.classList.add("is-hidden");
+        panel.setAttribute("aria-hidden", "true");
+        list.classList.remove("is-hidden");
+      }
+
+      if (btnNew) btnNew.addEventListener("click", openDraft);
+      if (btnCancel) btnCancel.addEventListener("click", closeDraft);
+      if (btnSave) btnSave.addEventListener("click", closeDraft);
+    })();
+  </script>
 </body>
 </html>
