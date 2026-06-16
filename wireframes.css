@@ -410,11 +410,21 @@ body {
 
 .popover {
   width: 420px;
+  max-height: 520px;
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.popover-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .popover-head {
@@ -423,6 +433,7 @@ body {
   gap: 8px;
   padding: 12px;
   border-bottom: 1px solid #f3f4f6;
+  flex-shrink: 0;
 }
 
 .search {
@@ -521,6 +532,43 @@ body {
   border: 1px solid #e5e7eb;
   padding: 3px 8px;
   border-radius: 999px;
+}
+
+/* Setup / pricing gap — same grey pill as static chips; hover reveals navigation affordance */
+button.pill.pill--clickable {
+  cursor: default;
+  font: inherit;
+  line-height: inherit;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: none;
+  transition:
+    background-color 0.12s ease-out,
+    border-color 0.12s ease-out,
+    color 0.12s ease-out,
+    box-shadow 0.12s ease-out;
+}
+
+button.pill.pill--clickable:hover {
+  cursor: pointer;
+  background: #e8f2fc;
+  border-color: #c7d9f0;
+  color: rgb(51, 108, 184);
+  box-shadow: 0 0 0 1px rgba(51, 108, 184, 0.12);
+}
+
+button.pill.pill--clickable:focus-visible {
+  cursor: pointer;
+  background: #e8f2fc;
+  border-color: #c7d9f0;
+  color: rgb(51, 108, 184);
+  box-shadow: 0 0 0 1px rgba(51, 108, 184, 0.12);
+  outline: 2px solid rgb(51, 108, 184);
+  outline-offset: 2px;
 }
 
 .content-fade {
