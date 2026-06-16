@@ -309,6 +309,10 @@ body {
   color: #dc2626;
 }
 
+.delta--down {
+  color: #15803d;
+}
+
 .btn-export {
   margin-top: 6px;
   font-size: 12px;
@@ -317,6 +321,87 @@ body {
   background: #fff;
   padding: 4px 10px;
   border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.2;
+}
+
+.btn-export:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Matches app Export control: icon + label + caret (slide 16 option impact toggle) */
+.btn-export--with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0;
+  padding: 5px 10px 5px 8px;
+  font-weight: 500;
+}
+
+.btn-export__icon {
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.btn-export__caret {
+  font-size: 9px;
+  color: #9ca3af;
+  margin-left: 1px;
+  transition: transform 0.15s ease;
+}
+
+.btn-export--with-icon[aria-expanded="true"] .btn-export__caret {
+  transform: rotate(-180deg);
+}
+
+.toolbar-right-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Slide 16: one row — Estimated Cost: $total Δ, then Export */
+.toolbar-right--est-inline .toolbar-right-bottom {
+  margin-top: 0;
+}
+
+.toolbar-right--est-inline .est-hit .est-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.toolbar-right--est-inline .est-hit {
+  align-items: center;
+}
+
+.est-hit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: right;
+}
+
+.est-hit:hover {
+  background: #eef2f7;
+}
+
+.est-hit:focus-visible {
+  outline: 2px solid rgb(51, 108, 184);
+  outline-offset: 2px;
 }
 
 .project-bar {
@@ -685,6 +770,18 @@ button.pill.pill--clickable:focus-visible {
   display: flex;
   flex-direction: column;
   z-index: 5;
+  transform: translateX(100%);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform 0.22s ease,
+    visibility 0.22s;
+}
+
+.slide-panel.is-open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .slide-panel-head {
@@ -722,6 +819,9 @@ button.pill.pill--clickable:focus-visible {
   font-size: 14px;
   color: #6b7280;
   background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
 }
 
 .summary-badge {
@@ -1042,6 +1142,8 @@ button.pill.pill--clickable:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .section-h button {
@@ -1055,9 +1157,45 @@ button.pill.pill--clickable:focus-visible {
 }
 
 .section-h-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  align-items: center;
   font-size: 11px;
   color: #6b7280;
   font-weight: 400;
+}
+
+.filter-chip {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.empty-measures {
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+  padding: 28px 12px !important;
+}
+
+.sb-nested {
+  padding-left: 22px;
+  font-size: 12px;
+}
+
+.measure-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 16px;
 }
 
 .wireframe table {
@@ -1096,6 +1234,7 @@ button.pill.pill--clickable:focus-visible {
   border-left: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .v3d {
@@ -1119,6 +1258,24 @@ button.pill.pill--clickable:focus-visible {
   justify-content: center;
   padding: 8px;
   overflow: hidden;
+}
+
+.v2d--footer {
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.viewer-floor-dd {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: 11px;
+  color: #374151;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 5px 22px 5px 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .viewer-visual-img {

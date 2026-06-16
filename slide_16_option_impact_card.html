@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="wireframe wireframe--column">
-    <div class="topbar topbar--compact">
+    <div class="topbar">
       <div class="topbar-brand-cluster">
         <div class="app-logo-lockup">
           <img src="higharc_logo.jpeg" alt="" class="app-logo-img" width="28" height="28" />
@@ -19,36 +19,237 @@
           <span class="tab-link">Integrations</span>
         </div>
       </div>
-      <span class="slide16-toolbar-meta">Proforma Plus · The Allison — Estimated <strong>$277,232</strong> <span class="slide16-delta">↑ +$1,250</span></span>
+      <span class="user">Estimate Design Critique 2</span>
     </div>
-    <div class="sub-toolbar">
-      <span class="tabs-mini"><strong>Measures</strong> &nbsp; Components &nbsp; Bill of Materials</span>
-      <span class="sub-toolbar-hint">Options: Cedar Shake selected</span>
-    </div>
-    <div class="main-row">
-      <div class="center-panel">
-        <div class="fake-card">
-          <strong class="fake-card-title">Doors</strong> — measure groups and resource rows for the selected category in the main <strong>Measures</strong> canvas (cropped).
-          <div class="skeleton-bar"></div>
-          <div class="skeleton-bar skeleton-bar--narrow"></div>
+
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <span class="fake-dd">Proforma Plus ▾</span>
+        <span class="fake-dd">The Allison (Master Plan) ▾</span>
+        <div class="toggle-pair"><span class="on">Active</span><span>Master</span></div>
+        <span class="fake-dd">Transitional ▾</span>
+        <button type="button" class="options-trigger">20 Options ▾</button>
+        <span class="reset-to-base">Reset to Base</span>
+      </div>
+      <div class="toolbar-right toolbar-right--est-inline">
+        <div class="toolbar-right-bottom">
+          <button
+            type="button"
+            class="est-hit"
+            id="est-hit-trigger"
+            aria-expanded="false"
+            aria-controls="option-impact-panel"
+            title="Show or hide option impact summary"
+          >
+            <span class="est-label">Estimated Cost:</span>
+            <span class="est-total">$710,740.02</span>
+            <span class="delta">↑ +$1,250</span>
+          </button>
+          <button
+            type="button"
+            class="btn-export btn-export--with-icon"
+            id="btn-impact-export"
+            aria-expanded="false"
+            aria-controls="option-impact-panel"
+            title="Show or hide option impact summary"
+          >
+            <svg class="btn-export__icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.29a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.42L11 12.59V4a1 1 0 0 1 1-1Z"/>
+              <path fill="currentColor" d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/>
+            </svg>
+            <span class="btn-export__text">Export</span>
+            <span class="btn-export__caret" aria-hidden="true">▾</span>
+          </button>
         </div>
       </div>
-      <div class="viewer-stack">
-        <div class="viewer-3d">
-          <div class="house-silhouette">
-            <div class="roof-hit" title="Affected roof planes"></div>
-          </div>
-          <div class="anno">
-            <strong>Model viewer</strong><br />
-            Affected envelope geometry is tinted to match the option you just applied; the floor plan below stays aligned for room-level checks.
+    </div>
+
+    <div class="main-tabs">
+      <span>Components</span>
+      <span class="active">Measures</span>
+      <span>Bill of Materials</span>
+    </div>
+
+    <div class="three-col">
+      <aside class="sidebar">
+        <div class="sb-head">Categories</div>
+        <div class="sb-item dim">Building</div>
+        <div class="sb-item dim">Casework</div>
+        <div class="sb-item dim">Ceilings</div>
+        <div class="sb-item dim">Columns</div>
+        <div class="sb-item active-bom">Doors</div>
+        <div class="sb-item dim">Electrical</div>
+        <div class="sb-item dim">Exterior Trim &amp; Casings</div>
+        <div class="sb-item dim">Floors</div>
+        <div class="sb-item sb-nested dim">Exterior Finish</div>
+        <div class="sb-item sb-nested dim">Interior Finish</div>
+        <div class="sb-item dim">Footings &amp; Foundations</div>
+        <div class="sb-item dim">Roofs</div>
+        <div class="sb-item sb-nested dim">Shingles</div>
+        <div class="sb-item dim">Walls</div>
+        <div class="sb-item sb-nested dim">Exterior Finish</div>
+        <div class="sb-item sb-nested dim">Interior Finish</div>
+        <div class="sb-item dim">Windows</div>
+      </aside>
+
+      <main class="center">
+        <div class="page-header-row">
+          <h1 class="page-title page-title--inline">Doors</h1>
+          <div class="page-header-actions">
+            <button type="button" class="btn-new-measure-group">+ New Measure Group</button>
           </div>
         </div>
-        <div class="viewer-2d">2D plan viewer (same plan, floor selector)</div>
 
-        <div class="slide-panel">
-          <button type="button" class="slide-close" aria-label="Close">×</button>
+        <div id="doors-measure-scroll" class="measure-scroll">
+          <div class="section">
+            <div class="section-h">
+              <span>Single Garage Doors</span>
+              <span class="section-h-meta">
+                <span class="filter-chip">Filter: class = garage</span>
+                <span class="filter-chip">Filter: width &lt; 119</span>
+              </span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Leaves</th>
+                  <th>Count</th>
+                  <th>Resources</th>
+                  <th>Estimated Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="empty-measures" colspan="5">No measures found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="section">
+            <div class="section-h">
+              <span>Double Garage Doors</span>
+              <span class="section-h-meta">
+                <span class="filter-chip">Filter: class = garage</span>
+                <span class="filter-chip">Filter: width ≥ 119</span>
+              </span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Leaves</th>
+                  <th>Count</th>
+                  <th>Resources</th>
+                  <th>Estimated Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>garage</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>16×7 insulated steel</td>
+                  <td class="cost">$2,890.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="section">
+            <div class="section-h">
+              <span>Exterior Doors</span>
+              <span class="section-h-meta">
+                <span class="filter-chip">Filter: class = exterior</span>
+              </span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Leaves</th>
+                  <th>Count</th>
+                  <th>Resources</th>
+                  <th>Estimated Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>exterior</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>6′-8″ fiberglass 3/0</td>
+                  <td class="cost">$1,450.00</td>
+                </tr>
+                <tr>
+                  <td>exterior</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>8′-0″ double fiberglass</td>
+                  <td class="cost">$2,100.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="section">
+            <div class="section-h">
+              <span>Interior Doors</span>
+              <span class="section-h-meta">
+                <span class="filter-chip">Filter: class = interior</span>
+              </span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Leaves</th>
+                  <th>Count</th>
+                  <th>Resources</th>
+                  <th>Estimated Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>interior</td>
+                  <td>1</td>
+                  <td>12</td>
+                  <td>6′-8″ hollow core</td>
+                  <td class="cost">$3,240.00</td>
+                </tr>
+                <tr>
+                  <td>interior</td>
+                  <td>1</td>
+                  <td>4</td>
+                  <td>8′-0″ solid core</td>
+                  <td class="cost">$1,890.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <aside class="right-panel">
+        <div class="v3d">
+          <img src="Doors3Dpanel.png" alt="" class="viewer-visual-img" />
+        </div>
+        <div class="v2d v2d--footer">
+          <img src="Doors2Dpanel.png" alt="" class="viewer-visual-img" />
+          <div class="viewer-floor-dd">Floor 1 ▾</div>
+        </div>
+
+        <div
+          id="option-impact-panel"
+          class="slide-panel"
+          role="region"
+          aria-labelledby="option-impact-title"
+          aria-hidden="true"
+        >
+          <button type="button" class="slide-close" aria-label="Close option impact">×</button>
           <div class="slide-panel-head slide-panel-head--padded">
-            <h2>Option Impact</h2>
+            <h2 id="option-impact-title">Option Impact</h2>
             <p>Cedar Shake — *Facade G1G</p>
           </div>
           <div class="summary-badge">
@@ -92,8 +293,35 @@
             <strong>View in Measures</strong> switches to the <strong>Measures</strong> tab with the category filter applied; your place in <strong>Bill of Materials</strong> and expanded rows is restored when you dismiss this panel or finish the review.
           </div>
         </div>
-      </div>
+      </aside>
     </div>
   </div>
+
+  <script>
+    (function () {
+      var panel = document.getElementById("option-impact-panel");
+      var btnImpact = document.getElementById("btn-impact-export");
+      var estHit = document.getElementById("est-hit-trigger");
+      var closeBtn = panel ? panel.querySelector(".slide-close") : null;
+
+      function setOpen(open) {
+        if (!panel) return;
+        panel.classList.toggle("is-open", open);
+        panel.setAttribute("aria-hidden", open ? "false" : "true");
+        [btnImpact, estHit].forEach(function (el) {
+          if (!el) return;
+          el.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      function toggle() {
+        setOpen(!panel.classList.contains("is-open"));
+      }
+
+      if (btnImpact) btnImpact.addEventListener("click", toggle);
+      if (estHit) estHit.addEventListener("click", toggle);
+      if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); });
+    })();
+  </script>
 </body>
 </html>
